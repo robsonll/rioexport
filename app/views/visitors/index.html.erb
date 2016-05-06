@@ -1,0 +1,67 @@
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Heading Row -->
+    <div class="row">
+        <div class="col-md-8">
+            <!--<img class="img-responsive img-rounded" src="cafe_brasil.jpg" alt="">-->
+            <%= image_tag("cafe_brasil.jpg", :alt => "RioExport") %>
+        </div>
+        <!-- /.col-md-8 -->
+        <div class="col-md-4">
+            <h1>RioExport</h1>
+            <p>Empresa brasileira de exportação de café</p>
+            <!--<a class="btn btn-primary btn-lg" href="#">Call to Action!</a>-->
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Well -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well text-center">
+                Telefone de contato -- 55 21 3456 5478
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2><%=link_to t('layout.customers'), customers_path%></h2>
+            <p>Acesse aqui o cadastro de clientes</p>
+            <!--<a class="btn btn-default" href="#">More Info</a>-->
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4">
+            <h2><%=link_to t('layout.supliers'), supliers_path%></h2>
+            <p>Acesse aqui o cadastro de fornecedores</p>
+          <!--<a class="btn btn-default" href="#">More Info</a>-->
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4">
+            <h2><%=link_to t('layout.sales'), sales_path%></h2>
+            <p>Acesse aqui o cadastro de vendas</p>
+          <!--<a class="btn btn-default" href="#">More Info</a>-->
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; RioExport 2016</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+

@@ -1,5 +1,16 @@
 class SalesController < ApplicationController
-  before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_sale, only: [:show, :edit, :update, :destroy, :saleReport]
+
+  require 'prawn'
+  attr_accessor :path
+
+
+  PDF_OPTIONS = {
+      :page_size   => "A4",
+      :page_layout => :landscape,
+      :margin      => [40, 75]
+  }
+
 
   # GET /sales
   # GET /sales.json
@@ -62,6 +73,109 @@ class SalesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+# *********************************************************************************************
+# * Relatorio Prawn
+# *********************************************************************************************
+
+  def allSalesReport
+
+    # Save and open pdf
+    #filename = File.join(Rails.root, "app/report", "SalesList.pdf")
+    #pdf.render_file filename
+    #send_file filename, :filename => "SalesList.pdf", :type => "application/pdf"
+
+    # Open pdf
+    send_data allSales_pdf.render, :filename => "SalesList.pdf", :type => "application/pdf"
+
+  end
+
+  def allSales_pdf
+
+    Prawn::Document.new(PDF_OPTIONS) do |pdf|
+
+      image_path ="#{Rails.root}/app/assets/images/cafe_saca1.jpg"
+
+      data = [ [{:image => image_path, :image_height => 40, :image_width => 50 }, "RioExport"]]
+
+      pdf.table(data, :cell_style =>{:size => 22,:text_color =>"346842"}) do
+        cells.borders = []
+      end  
+
+      pdf.stroke_horizontal_rule      
+
+      pdf.move_down 20
+      pdf.text "Listagem de Vendas", :size => 12, :align => :left, :style => :bold
+
+      pdf.table allSales_rows do
+        row(0).font_style = :bold
+        self.header = true
+        self.row_colors = ['DDDDDD', 'FFFFFF']
+        self.column_widths = [40, 300, 200]
+      end
+
+    end
+
+  end
+
+  def allSales_rows
+    @sales = Sale.all
+
+    [['#', 'Name']] +
+      @sales.map do |sale|
+      [sale.id, sale.suplier_id]
+    end
+  end  
+
+
+  def saleReport
+
+    # Save and open pdf
+    #filename = File.join(Rails.root, "app/report", "SalesList.pdf")
+    #pdf.render_file filename
+    #send_file filename, :filename => "SalesList.pdf", :type => "application/pdf"
+
+    # Open pdf
+    send_data sale_pdf.render, :filename => "Sale.pdf", :type => "application/pdf"
+
+  end
+
+  def sale_pdf
+
+    Prawn::Document.new(PDF_OPTIONS) do |pdf|
+
+      image_path ="#{Rails.root}/app/assets/images/cafe_saca1.jpg"
+
+      data = [ [{:image => image_path, :image_height => 40, :image_width => 50 }, "RioExport"]]
+
+      pdf.table(data, :cell_style =>{:size => 22,:text_color =>"346842"}) do
+        cells.borders = []
+      end  
+
+      pdf.stroke_horizontal_rule      
+
+      pdf.move_down 20
+      pdf.text "Venda Unica", :size => 12, :align => :left, :style => :bold
+
+      pdf.move_down 30
+
+      data = [ 
+                ["Buyer:", @sale.customer.name],
+                ["Seller:", @sale.suplier.name],
+                ["Shipping Date:", @sale.shipping_date],
+                ["Price:", @sale.price]
+              ]
+
+      pdf.table(data, :cell_style =>{:size => 22,:text_color =>"346842"}) do
+        cells.borders = []
+      end  
+
+    end
+
+  end
+
+# *********************************************************************************************
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

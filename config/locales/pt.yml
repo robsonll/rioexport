@@ -42,28 +42,6 @@ pt-BR:
       title: 'Login'
       sign_up: 'Cadastre-se'
 
-  rooms:
-    new:
-      title: 'Cadastro de quarto'
-    edit:
-      title: 'Editando quarto'
-    index:
-      title: 'Quartos disponíveis'
-      search_results: 'Resultados da busca'
-    search:
-      search_for: 'Buscar por...'
-    room:
-      owner_html: '&mdash; %{owner} (%{when})'
-      edit: 'Editar'
-      destroy: 'Remover'
-      review_form:
-        login_to_review: 'Faça o login para avaliar quartos'
-      review:
-        stats:
-          zero: 'Não há avaliações'
-          one: '%{average}/%{max} (1 avaliação)'
-          other: '%{average}/%{max} (%{count} avaliações)'
-
   links:
     back: Voltar
 
@@ -93,7 +71,7 @@ pt-BR:
       sale:
         rioexport_contract: 'Contrato RioExport'
         suplier_contract: 'Contrato Fornecedor'
-        customer_contract: 'Contrato Cliente'
+        customer_contract: 'Contrato Comprador'
         shipping_company: 'Transportador'
         bags_qty: 'Quantidade de Sacas'
         shipping_date: 'Data de Embarque'
@@ -102,7 +80,9 @@ pt-BR:
         comission_value: 'Valor Comissão'
         decimal: 'xxx'
         suplier_id: 'id Fornecedor'
+        suplier_name: 'Fornecedor'
         customer_id: 'id Cliente'
+        customer_name: 'Comprador'
         created_at: 'Criado em'
         updated_at: 'Alterado em'
 

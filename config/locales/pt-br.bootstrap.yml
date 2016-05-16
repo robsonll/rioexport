@@ -16,6 +16,7 @@ pt-BR:
       destroy: "Excluir"
       new: "Novo"
       edit: "Editar"
+      print: "Imprimir"
     titles:
       edit: "Editar %{model}"
       save: "Salvar %{model}"

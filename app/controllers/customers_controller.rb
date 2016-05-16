@@ -1,6 +1,18 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
+  require 'prawn'
+  attr_accessor :path
+
+
+  PDF_OPTIONS = {
+      :page_size   => "A4",
+      :page_layout => :landscape,
+      # :background  => "public/images/cert_bg.png",
+      :margin      => [40, 75]
+  }
+
+
   # GET /customers
   # GET /customers.json
   def index
@@ -61,6 +73,62 @@ class CustomersController < ApplicationController
     end
   end
 
+# *********************************************************************************************
+# * Relatorio Prawn
+# *********************************************************************************************
+
+  def allCustomersReport
+
+    # Save and open pdf
+    #filename = File.join(Rails.root, "app/report", "CustomersList.pdf")
+    #pdf.render_file filename
+    #send_file filename, :filename => "CustomersList.pdf", :type => "application/pdf"
+
+    # Open pdf
+    send_data allCustomers_pdf.render, :filename => "CustomersList.pdf", :type => "application/pdf"
+
+  end
+
+  def allCustomers_pdf
+
+    Prawn::Document.new(PDF_OPTIONS) do |pdf|
+
+      image_path ="#{Rails.root}/app/assets/images/cafe_saca1.jpg"
+
+      data = [ [{:image => image_path, :image_height => 40, :image_width => 50 }, "RioExport"]]
+
+      pdf.table(data, :cell_style =>{:size => 22,:text_color =>"346842"}) do
+        cells.borders = []
+      end  
+
+      pdf.stroke_horizontal_rule      
+
+      pdf.move_down 20
+      pdf.text "Listagem de Clientes", :size => 12, :align => :left, :style => :bold
+
+      pdf.table allClients_rows do
+        row(0).font_style = :bold
+        self.header = true
+        self.row_colors = ['DDDDDD', 'FFFFFF']
+        self.column_widths = [40, 300, 200]
+      end
+
+    end
+
+  end
+
+  def allClients_rows
+    @customers = Customer.all
+
+    [['#', 'Name']] +
+      @customers.map do |customer|
+      [customer.id, customer.name]
+    end
+  end  
+
+# *********************************************************************************************
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
@@ -71,4 +139,9 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(:name, :email, :address, :state, :country)
     end
+
+    # Metodos para utilização do Prawn
+
+
+
 end

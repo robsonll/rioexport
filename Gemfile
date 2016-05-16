@@ -1,11 +1,19 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.3.1'
 gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
+
+gem 'prawn'
+gem 'prawn-table', '~> 0.1.0'
+#gem 'prawnto_2', :require => 'prawnto'
+gem 'rspec-rails', '~> 2.0'
+gem 'capybara'
+#gem 'pdf-inspector'
+
 
 gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
@@ -33,10 +41,8 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rspec-rails'
 end
 group :test do
-  gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'

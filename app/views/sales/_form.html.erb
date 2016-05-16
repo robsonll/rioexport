@@ -79,26 +79,32 @@
     <%=f.error_span(:comission_value) %>
   </div>
   <div class="form-group">
-    <%= f.label :suplier_id, :class => 'control-label col-lg-2' %>
+    <%= f.label :suplier_name, :class => 'control-label col-lg-2' %>
     <div class="col-lg-2">
-      <%= f.text_field :suplier_id, :class => 'form-control' %>
+      <%= f.collection_select(:suplier_id, @supliers, :id, :name, include_blank: true) %>
     </div>
     <%=f.error_span(:suplier_id) %>
   </div>
   <div class="form-group">
-    <%= f.label :customer_id, :class => 'control-label col-lg-2' %>
+    <%= f.label :customer_name, :class => 'control-label col-lg-2' %>
     <div class="col-lg-2">
-      <%= f.text_field :customer_id, :class => 'form-control' %>
+      <%= f.collection_select(:customer_id, @customers, :id, :name, include_blank: true) %>
     </div>
     <%=f.error_span(:customer_id) %>
   </div>
 
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                sales_path, :class => 'btn btn-default' %>
-    </div>
-  </div>
-
+  <table>
+    <tr align="left">
+      <td width="100">&nbsp;</td>
+      <td>
+        <%=  image_submit_tag('confirm.png') %>
+      </td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>
+        <%= link_to image_tag('cancel.png', :border => 0, :alt => '', :title => 'Cancelar', :width => 40, :height => 40),
+                    sales_path
+        %>
+      </td>
+    </tr>
+  </table>
 <% end %>

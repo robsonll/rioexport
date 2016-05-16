@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: 'visitors#index'
+
   resources :sales
   resources :customers
   resources :supliers
-  root to: 'visitors#index'
-  devise_for :users
   resources :users
+
+  post '/customer/report' => 'customers#customerReport', :as => :customer_report
+  post '/allCustomers/report' => 'customers#allCustomersReport'
+
+  post '/sale/:id/report' => 'sales#saleReport', :as => :sale_report
+  post '/allSales/report' => 'sales#allSalesReport'
+
 end

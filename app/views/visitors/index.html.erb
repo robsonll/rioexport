@@ -33,26 +33,23 @@
     <!-- Content Row -->
     <div class="row">
         <div class="col-md-4">
-            <h2><%=link_to t('layout.customers'), customers_path%></h2>
-            <p>Acesse aqui o cadastro de clientes</p>
-            <!--<a class="btn btn-default" href="#">More Info</a>-->
+            <%=link_to image_tag('user_group.png', :border => 0, :alt => '', :title => 'Clientes', :width => 60, :height => 60), customers_path%>
+            <p align="center">Clientes</p>
         </div>
         <!-- /.col-md-4 -->
         <div class="col-md-4">
-            <h2><%=link_to t('layout.supliers'), supliers_path%></h2>
-            <p>Acesse aqui o cadastro de fornecedores</p>
-          <!--<a class="btn btn-default" href="#">More Info</a>-->
+            <%=link_to image_tag('user_clients_01.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), supliers_path%>
+            <p align="center">Fornecedores</p>
         </div>
         <!-- /.col-md-4 -->
         <div class="col-md-4">
-            <h2><%=link_to t('layout.sales'), sales_path%></h2>
-            <p>Acesse aqui o cadastro de vendas</p>
-          <!--<a class="btn btn-default" href="#">More Info</a>-->
+            <%=link_to image_tag('dollar_sign.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), sales_path%>
+            <p align="center">Vendas</p>
         </div>
         <!-- /.col-md-4 -->
     </div>
     <!-- /.row -->
-
+<br><br><br><br>
     <!-- Footer -->
     <footer>
         <div class="row">

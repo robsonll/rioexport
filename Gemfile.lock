@@ -254,7 +254,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
-  mysql2 (~> 0.3.18)
+  mysql2
   prawn
   prawn-table (~> 0.1.0)
   quiet_assets
@@ -275,4 +275,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.3
+   1.12.4

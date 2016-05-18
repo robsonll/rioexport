@@ -15,7 +15,7 @@ development:
   database: rioexport_development
   pool: 5
   username: root
-  password: nosbor54
+  password: rubyonrails
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: rioexport_test
   pool: 5
   username: root
-  password: nosbor54
+  password: rubyonrails
   host: localhost
 
 production:
@@ -38,5 +38,5 @@ production:
   database: rioexport_production
   pool: 5
   username: root
-  password: nosbor54
+  password: rubyonrails
   host: localhost

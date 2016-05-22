@@ -10,7 +10,7 @@
         <!-- /.col-md-8 -->
         <div class="col-md-4">
             <h1>RioExport</h1>
-            <p>Empresa brasileira de exportação de café</p>
+            <p>Comercio Exportação e Importação LTDA</p>
             <!--<a class="btn btn-primary btn-lg" href="#">Call to Action!</a>-->
         </div>
         <!-- /.col-md-4 -->
@@ -23,31 +23,36 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="well text-center">
-                Telefone de contato -- 55 21 3456 5478
+                Telefone de contato -- 55 21 34866413
             </div>
         </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
 
-    <!-- Content Row -->
-    <div class="row">
-        <div class="col-md-4">
-            <%=link_to image_tag('user_group.png', :border => 0, :alt => '', :title => 'Clientes', :width => 60, :height => 60), customers_path%>
-            <p align="center">Clientes</p>
+    <% if user_signed_in? %>
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-md-4">
+                <%=link_to image_tag('user_group.png', :border => 0, :alt => '', :title => 'Clientes', :width => 60, :height => 60), customers_path%>
+                <p align="center">Cadastro de Clientes</p>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <%=link_to image_tag('user_clients_01.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), supliers_path%>
+                <p align="center">Fornecedores</p>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <%=link_to image_tag('dollar_sign.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), sales_path%>
+                <p align="center">Vendas</p>
+            </div>
+            <!-- /.col-md-4 -->
         </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4">
-            <%=link_to image_tag('user_clients_01.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), supliers_path%>
-            <p align="center">Fornecedores</p>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4">
-            <%=link_to image_tag('dollar_sign.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), sales_path%>
-            <p align="center">Vendas</p>
-        </div>
-        <!-- /.col-md-4 -->
-    </div>
+
+    <% end %>
+    
     <!-- /.row -->
 <br><br><br><br>
     <!-- Footer -->

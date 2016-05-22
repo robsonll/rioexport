@@ -158,9 +158,20 @@ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
     $ heroku config:add GMAIL_USERNAME='myname@gmail.com' GMAIL_PASSWORD='secret'
     $ heroku config:add DOMAIN_NAME='example.com'
 
+* heroku connectin on database.yml
+    production:
+      <<: *default
+      database: dc5qdqlc6bt455
+      username: aosrvlpnigmksz
+      password: 6srt75Hhltl59MwMtvO4mOnz8V
+      host:     ec2-54-235-102-235.compute-1.amazonaws.com
+  
+    heroku run rake db:migrate
+
 Problemas conhecidos
 ----------------------------------
 - rake assets:precompile - TypeError: no implicit conversion of nil into String
     commentar config.mailer_sender in config/initilalizers/devise.rb
 
 rails s -b $IP -p $PORT
+sudo service postgresql start           (start no posgresql)

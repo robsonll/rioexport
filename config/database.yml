@@ -3,25 +3,23 @@ default: &default
       encoding: unicode
       pool: 5
 
-
 development:
   <<: *default
   database: rioexport_development
   username: postgres
   password: password
   host:     localhost
-      
+
 test:
   <<: *default
   database: rioexport_test
   username: postgres
   password: password
   host:     localhost
-      
+
 production:
   <<: *default
   database: dc5qdqlc6bt455
   username: aosrvlpnigmksz
   password: 6srt75Hhltl59MwMtvO4mOnz8V
   host:     ec2-54-235-102-235.compute-1.amazonaws.com
-      

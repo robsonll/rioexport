@@ -153,10 +153,10 @@ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 * configurar as variaveis de ambiente no heroku
 
-    $ heroku config:add ADMIN_NAME='First User'
-    $ heroku config:add ADMIN_EMAIL='user@example.com' ADMIN_PASSWORD='changeme'
-    $ heroku config:add GMAIL_USERNAME='myname@gmail.com' GMAIL_PASSWORD='secret'
-    $ heroku config:add DOMAIN_NAME='example.com'
+    $ heroku config:add ADMIN_NAME='Robson Lourenco'
+    $ heroku config:add ADMIN_EMAIL='robson.lourenco@gmail.com' ADMIN_PASSWORD='changeme'
+    $ heroku config:add GMAIL_USERNAME='robson.lourenco@gmail.com' GMAIL_PASSWORD='secret'
+    $ heroku config:add DOMAIN_NAME='rioexport.com'
 
 * heroku connectin on database.yml
     production:

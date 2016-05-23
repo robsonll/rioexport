@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "RioExport teste" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "RioExport" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "RioExport" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'coffee_bean3.png' %>
   </head>
   <body>
     <header>

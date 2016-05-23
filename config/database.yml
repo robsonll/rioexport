@@ -19,7 +19,7 @@ test:
 
 production:
   <<: *default
-  database: dc5qdqlc6bt455
-  username: aosrvlpnigmksz
-  password: 6srt75Hhltl59MwMtvO4mOnz8V
-  host:     ec2-54-235-102-235.compute-1.amazonaws.com
+  database: dfps05km0ghugt
+  username: gqbevguspxpgvp
+  password: oziWsyykPdg2rmQSJcMN3_ddF2
+  host:     ec2-54-83-5-43.compute-1.amazonaws.com

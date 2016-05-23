@@ -35,12 +35,6 @@ Documentation and Support
 Issues
 -------------
 
-Similar Projects
-----------------
-
-Contributing
-------------
-
 Credits
 -------
 
@@ -167,6 +161,19 @@ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
       host:     ec2-54-235-102-235.compute-1.amazonaws.com
   
     heroku run rake db:migrate
+
+* bkup no posgres
+    PGPASSWORD=password pg_dump -Fc --no-acl --no-owner -h localhost -U postgres rioexport_development > rioexport.dump
+
+
+* Colocar bkp no AWS S3 e configurar variaveis no heroku
+    heroku config:set AWS_ACCESS_KEY_ID=xxxxxxx AWS_SECRET_ACCESS_KEY=yyyyyyy
+    heroku config:set S3_BUCKET_NAME=rioexport-assets
+        
+* Recuperar o bkp do AWS para o heroku    
+    heroku pg:backups restore 'https://s3-sa-east-1.amazonaws.com/rioexport-assets/rioexport.dump' DATABASE_URL
+
+
 
 Problemas conhecidos
 ----------------------------------

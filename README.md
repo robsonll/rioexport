@@ -72,8 +72,30 @@ $ echo "source \$HOME/.rvm/scripts/rvm" >> ~/.bashrc
 MySql Server/Client
 -------------------------------------
 
-$ sudo apt install mysql-server mysql-client
-$ sudo apt-get install libmysqlclient-dev
+    $ sudo apt install mysql-server mysql-client
+    $ sudo apt-get install libmysqlclient-dev
+
+Postgres Server/Client
+-------------------------------------
+
+    $ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+    $ wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+    
+    $ sudo apt-get update
+    $ sudo apt-get install postgresql postgresql-contrib
+    
+    $ sudo su - postgres
+    $ psql
+    
+    postgres-# q
+    
+    sudo passwd postgres
+        nova senha
+        
+    su postgres
+    
+    psql -c "ALTER USER postgres WITH PASSWORD 'nova_senha'" -d template1
+    
 
 Configurando c9
 ---------------------
@@ -179,6 +201,9 @@ Problemas conhecidos
 ----------------------------------
 - rake assets:precompile - TypeError: no implicit conversion of nil into String
     commentar config.mailer_sender in config/initilalizers/devise.rb
+
+- erro instalação gem do pg --> fatal error: libpq-fe.h: No such file or directory
+    sudo apt-get install libpq-dev
 
 rails s -b $IP -p $PORT
 sudo service postgresql start           (start no posgresql)

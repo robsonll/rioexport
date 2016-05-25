@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post '/sale/:id/report' => 'sales#saleReport', :as => :sale_report
   post '/allSales/report' => 'sales#allSalesReport'
 
+  post '/suplier/:id/report' => 'supliers#suplierReport', :as => :suplier_report
+  post '/allSupliers/report' => 'supliers#allSupliersReport'
+
   post '/user/create' => 'users#create', :as => :user_create
 
 end

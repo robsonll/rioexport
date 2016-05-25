@@ -50,7 +50,7 @@
     </div>
     <%=f.error_span(:country) %>
   </div>
-
+<!--
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
@@ -58,5 +58,21 @@
                 supliers_path, :class => 'btn btn-default' %>
     </div>
   </div>
+-->
+
+  <table>
+    <tr align="left">
+      <td width="100">&nbsp;</td>
+      <td>
+        <%=  image_submit_tag('confirm2.png', :border => 0, :alt => '', :title => 'Salvar', :width => 40, :height => 40) %>
+      </td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>
+        <%= link_to image_tag('back.png', :border => 0, :alt => '', :title => 'Cancelar', :width => 40, :height => 40),
+                    supliers_path
+        %>
+      </td>
+    </tr>
+  </table>
 
 <% end %>

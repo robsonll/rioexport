@@ -22,6 +22,7 @@
         <td><%= suplier.state %></td>
         <td><%= suplier.country %></td>
         <td>
+          <!--
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_suplier_path(suplier), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -29,12 +30,42 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
+          -->            
+          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => 'Alterar Fornecedor', :width => 20, :height => 20),
+                      edit_suplier_path(suplier)
+          %>
+          </td>
+          <td>
+          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => 'Apagar Fornecedor', :width => 20, :height => 20),
+                      suplier_path(suplier),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }
+          %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<!--
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_suplier_path,
             :class => 'btn btn-primary' %>
+-->
+
+<table>
+  <tr align="left">
+    <td>
+        <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => 'Novo Fornecedor', :width => 40, :height => 40),
+                    new_suplier_path
+        %>
+    </td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>
+        <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => 'Todas os Fornecedores', :width => 40, :height => 40),
+                              allSupliers_report_path,
+                              method: :post
+        %>
+    </td>
+  </tr>
+</table>

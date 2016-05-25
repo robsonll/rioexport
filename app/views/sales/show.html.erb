@@ -28,6 +28,7 @@
   <dd><%= @sale.customer_id %></dd>
 </dl>
 
+<!--
 <%= link_to t('.back', :default => t("helpers.links.back")),
               sales_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -37,3 +38,29 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+-->
+
+  <table>
+    <tr align="left">
+      <td width="100">&nbsp;</td>
+      <td>
+        <%= link_to image_tag('back.png', :border => 0, :alt => '', :title => 'Voltar', :width => 40, :height => 40),
+                    sales_path
+        %>
+      </td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>
+          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => 'Alterar Venda', :width => 40, :height => 40),
+                      edit_sale_path(@sale)
+          %>
+      </td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>
+          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => 'Apagar Venda', :width => 40, :height => 40),
+                      sale_path(@sale),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza ?')) }
+          %>
+      </td>
+    </tr>
+  </table>

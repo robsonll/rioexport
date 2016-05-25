@@ -23,6 +23,27 @@
     <%=f.error_span(:name) %>
   </div>
   <div class="form-group">
+    <%= f.label :complete_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.text_field :complete_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:complete_name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cnpj, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.text_field :cnpj, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:cnpj) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :inscr_est, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.text_field :inscr_est, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:inscr_est) %>
+  </div>
+  <div class="form-group">
     <%= f.label :email, :class => 'control-label col-lg-2' %>
     <div class="col-lg-2">
       <%= f.text_field :email, :class => 'form-control' %>

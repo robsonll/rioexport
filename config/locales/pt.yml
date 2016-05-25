@@ -53,6 +53,7 @@ pt-BR:
     attributes:
       customer:
         name: 'Nome'
+        complete_name: 'Nome Completo'
         email: 'Email'
         address: 'Endereço'
         state: 'Estado/Provincia'
@@ -62,6 +63,9 @@ pt-BR:
       suplier:
         title: 'Fornecedores'
         name: 'Nome'
+        complete_name: 'Nome Completo'
+        cnpj: 'CNPJ'
+        inscr_est: 'Inscrição Estadual'
         email: 'Email'
         address: 'Endereço'
         state: 'Estado/Provincia'
@@ -85,6 +89,28 @@ pt-BR:
         customer_name: 'Comprador'
         created_at: 'Criado em'
         updated_at: 'Alterado em'
+    controller_msg:
+      customer:
+        created: 'Cliente criado com sucesso'
+        updated: 'Cliente atualizado com sucesso'
+        destroyed: 'Cliente excluído com sucesso'
+      suplier:
+        created: 'Fornecedor criado com sucesso'
+        updated: 'Fornecedor atualizado com sucesso'
+        destroyed: 'Fornecedor excluído com sucesso'
+      sale:
+        created: 'Venda cadastrada com sucesso'
+        updated: 'Venda atualizada com sucesso'
+        destroyed: 'Venda excluída com sucesso'
+  
+  views:
+    suplier:
+      new: 'Cadastrar Novo Fornecedor'
+      allReport: 'Listagem de Fornecedores'
+    customer:
+      new: 'Cadastrar Novo Cliente'
+      allReport: 'Listagem de Clientes'
+    
 
   activemodel:
     attributes:
@@ -99,4 +125,5 @@ pt-BR:
     submit:
       user_session:
         create: 'Entrar'
+
 

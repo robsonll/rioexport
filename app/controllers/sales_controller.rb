@@ -41,7 +41,7 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @sale.save
-        format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
+        format.html { redirect_to @sale, notice: t("activerecord.controller_msg.sale.created", :default => 'Sale was successfully created.') }
         format.json { render :show, status: :created, location: @sale }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class SalesController < ApplicationController
   def update
     respond_to do |format|
       if @sale.update(sale_params)
-        format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
+        format.html { redirect_to @sale, notice: t("activerecord.controller_msg.sale.updated", :default => 'Sale was successfully updated.') }
         format.json { render :show, status: :ok, location: @sale }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class SalesController < ApplicationController
   def destroy
     @sale.destroy
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'Sale was successfully destroyed.' }
+      format.html { redirect_to sales_url, notice: t("activerecord.controller_msg.sale.destroyed", :default => 'Sale was successfully destroyed.') }
       format.json { head :no_content }
     end
   end

@@ -22,10 +22,10 @@
   <dd><%= @sale.product_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:comission_value) %>:</strong></dt>
   <dd><%= @sale.comission_value %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:suplier_id) %>:</strong></dt>
-  <dd><%= @sale.suplier_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customer_id) %>:</strong></dt>
-  <dd><%= @sale.customer_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:suplier_name) %>:</strong></dt>
+  <dd><%= @sale.suplier.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:customer_name) %>:</strong></dt>
+  <dd><%= @sale.customer.name %></dd>
 </dl>
 
 <!--

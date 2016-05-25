@@ -28,7 +28,7 @@ class SupliersController < ApplicationController
 
     respond_to do |format|
       if @suplier.save
-        format.html { redirect_to @suplier, notice: 'Suplier was successfully created.' }
+        format.html { redirect_to @suplier, notice: t("activerecord.controller_msg.suplier.created", :default => 'Suplier was successfully created.') }
         format.json { render :show, status: :created, location: @suplier }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SupliersController < ApplicationController
   def update
     respond_to do |format|
       if @suplier.update(suplier_params)
-        format.html { redirect_to @suplier, notice: 'Suplier was successfully updated.' }
+        format.html { redirect_to @suplier, notice: t("activerecord.controller_msg.suplier.updated", :default => 'Suplier was successfully updated.') }
         format.json { render :show, status: :ok, location: @suplier }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SupliersController < ApplicationController
   def destroy
     @suplier.destroy
     respond_to do |format|
-      format.html { redirect_to supliers_url, notice: 'Suplier was successfully destroyed.' }
+      format.html { redirect_to supliers_url, notice: t("activerecord.controller_msg.suplier.destroyed", :default => 'Suplier was successfully destroyed.') }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class SupliersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suplier_params
-      params.require(:suplier).permit(:name, :email, :address, :state, :country)
+      params.require(:suplier).permit(:name, :complete_name, :cnpj, :inscr_est, :email, :address, :state, :country)
     end
 end

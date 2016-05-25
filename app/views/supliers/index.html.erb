@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:complete_name) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:state) %></th>
@@ -17,6 +18,7 @@
     <% @supliers.each do |suplier| %>
       <tr>
         <td><%= link_to suplier.name, suplier_path(suplier) %></td>
+        <td><%= suplier.complete_name %></td>
         <td><%= suplier.email %></td>
         <td><%= suplier.address %></td>
         <td><%= suplier.state %></td>
@@ -56,13 +58,13 @@
 <table>
   <tr align="left">
     <td>
-        <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => 'Novo Fornecedor', :width => 40, :height => 40),
+        <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => t("views.suplier.new", :default => 'New Suplier'), :width => 40, :height => 40),
                     new_suplier_path
         %>
     </td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td>
-        <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => 'Todas os Fornecedores', :width => 40, :height => 40),
+        <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => t("views.suplier.allReport", :default => 'Supliers Report'), :width => 40, :height => 40),
                               allSupliers_report_path,
                               method: :post
         %>

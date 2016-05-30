@@ -17,6 +17,7 @@ pt-BR:
       new: "Novo"
       edit: "Editar"
       print: "Imprimir"
+      save: "Salvar"
     titles:
       edit: "Editar %{model}"
       save: "Salvar %{model}"

@@ -1,0 +1,2 @@
+class FixationController < ApplicationController
+end

@@ -30,7 +30,7 @@
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               suplier_path(@suplier),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) },
               :class => 'btn btn-danger' %>
 -->
 
@@ -38,22 +38,22 @@
     <tr align="left">
       <td width="100">&nbsp;</td>
       <td>
-        <%= link_to image_tag('back.png', :border => 0, :alt => '', :title => 'Voltar', :width => 40, :height => 40),
+        <%= link_to image_tag('back.png', :border => 0, :alt => '', :title => t("helpers.links.back", :default => 'Back'), :width => 40, :height => 40),
                     supliers_path
         %>
       </td>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>
-          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => 'Alterar Fornecedor', :width => 40, :height => 40),
+          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => t("views.suplier.edit", :default => 'Edit Suplier'), :width => 40, :height => 40),
                       edit_suplier_path(@suplier)
           %>
       </td>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>
-          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => 'Apagar Fornecedor', :width => 40, :height => 40),
+          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => t("views.suplier.destroy", :default => 'Delete Suplier'), :width => 40, :height => 40),
                       suplier_path(@suplier),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza ?')) }
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) }
           %>
       </td>
     </tr>

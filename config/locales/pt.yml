@@ -106,10 +106,22 @@ pt-BR:
   views:
     suplier:
       new: 'Cadastrar Novo Fornecedor'
+      edit: 'Editar Fornecedor'
+      destroy: 'Excluir Fornecedor'
       allReport: 'Listagem de Fornecedores'
     customer:
       new: 'Cadastrar Novo Cliente'
+      edit: 'Editar Cliente'
+      destroy: 'Excluir Cliente'
       allReport: 'Listagem de Clientes'
+    sale:
+      new: 'Cadastrar Nova Venda'
+      edit: 'Editar Venda'
+      destroy: 'Excluir Venda'
+      allReport: 'Relatório de Vendas'
+      report: 'Relatório Individual de Venda'
+      sale_contract: 'Contrato de Venda'
+      ship_info: 'Dados de Embarque'
     
 
   activemodel:

@@ -14,94 +14,231 @@
       </div>
     </div>
   <% end %>
+  
+  
+  <div class="tabbable"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab"><%= t("views.sale.sale_contract", :default => 'Sale Contract') %></a></li>
+      <li><a href="#tab2" data-toggle="tab"><%= t("views.sale.ship_info", :default => 'Shippment Information') %></a></li>
+      <li><a href="#tab3" data-toggle="tab"><%= t("views.sale.fixation_info", :default => 'Price Fixation') %></a></li>
+    </ul>
+    <div class="tab-content">
 
-  <div class="form-group">
-    <%= f.label :rioexport_contract, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-1">
-      <%= f.text_field :rioexport_contract, :class => 'form-control' %>
+    <!-- ************************************ TAB 1 ****************************************-->      
+      <div class="tab-pane active" id="tab1">
+        <br>
+        <div class="form-group">
+          <%= f.label :rioexport_contract, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :rioexport_contract, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:rioexport_contract) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :suplier_contract, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :suplier_contract, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:suplier_contract) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :customer_contract, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :customer_contract, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:customer_contract) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :bags_qty, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :bags_qty, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:bags_qty) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :shipping_date, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :shipping_date, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:shipping_date) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :price, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :price, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:price) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :product_type, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= f.text_field :product_type, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:product_type) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :suplier_name, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= f.collection_select(:suplier_id, @supliers, :id, :name, include_blank: true) %>
+          </div>
+          <%=f.error_span(:suplier_id) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :suplier_commission, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :suplier_commission, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:suplier_commission) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :customer_name, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= f.collection_select(:customer_id, @customers, :id, :name, include_blank: true) %>
+          </div>
+          <%=f.error_span(:customer_id) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :customer_comission, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-1">
+            <%= f.text_field :customer_commission, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:customer_commission) %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :shipping_co_id, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= f.text_field :shipping_co_id, :class => 'form-control' %>
+          </div>
+          <%=f.error_span(:shipping_co_id) %>
+        </div>
+
+      </div>
+      
+    <!-- ************************************ TAB 2 ****************************************-->
+      
+      <div class="tab-pane" id="tab2">
+        <br>
+
+        <%= f.fields_for :shipping do |sh| %>
+          <div class="form-group">
+            <%= sh.label :destination, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= sh.text_field :destination, :class => 'form-control' %>
+            </div>
+            <%=sh.error_span(:destination) %>
+          </div>
+          
+          <div class="form-group">
+            <%= sh.label :daparture_terminal, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= sh.text_field :daparture_terminal, :class => 'form-control' %>
+            </div>
+            <%=sh.error_span(:daparture_terminal) %>
+          </div>
+
+          <div class="form-group">
+            <%= sh.label :arriving_terminal, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= sh.text_field :arriving_terminal, :class => 'form-control' %>
+            </div>
+            <%=sh.error_span(:arriving_terminal) %>
+          </div>
+
+          <div class="form-group">
+            <%= sh.label :shipping_line, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= sh.text_field :shipping_line, :class => 'form-control' %>
+            </div>
+            <%=sh.error_span(:shipping_line) %>
+          </div>
+          
+          <div class="form-group">
+            <%= sh.label :special_conditions, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= sh.text_area :special_conditions, cols: "30", rows: "8", :class => 'form-control' %>
+            </div>
+            <%=sh.error_span(:special_conditions) %>
+          </div>
+          
+          <div class="form-group">
+            <%= sh.label :documents, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= sh.text_area :documents, cols: "60", rows: "8", :class => 'form-control' %>
+            </div>
+            <%=sh.error_span(:documents) %>
+          </div>
+          
+        <% end %>
+
+      </div>
+
+    <!-- ************************************ TAB 3 ****************************************-->    
+      
+      <div class="tab-pane" id="tab3">
+        <br>
+
+        <%= f.fields_for :fixation do |fx| %>
+          <div class="form-group">
+            <%= fx.label :fixed_lot, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :fixed_lot, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:fixed_lot) %>
+          </div>
+          
+          <div class="form-group">
+            <%= fx.label :average_price, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :average_price, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:average_price) %>
+          </div>
+
+          <div class="form-group">
+            <%= fx.label :defferential, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :defferential, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:defferential) %>
+          </div>
+
+          <div class="form-group">
+            <%= fx.label :final_price, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :final_price, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:final_price) %>
+          </div>
+          
+        <% end %>
+
+      </div>
+
+    <!-- ************************************ FIM TABS ****************************************-->      
+
     </div>
-    <%=f.error_span(:rioexport_contract) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :suplier_contract, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-1">
-      <%= f.text_field :suplier_contract, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:suplier_contract) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :customer_contract, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-1">
-      <%= f.text_field :customer_contract, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:customer_contract) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :shipping_company, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-2">
-      <%= f.text_field :shipping_company, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:shipping_company) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :bags_qty, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-1">
-      <%= f.text_field :bags_qty, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:bags_qty) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :shipping_date, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-1">
-      <%= f.text_field :shipping_date, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:shipping_date) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :price, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-1">
-      <%= f.text_field :price, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:price) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :product_type, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-2">
-      <%= f.text_field :product_type, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:product_type) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :comission_value, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-1">
-      <%= f.text_field :comission_value, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:comission_value) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :suplier_name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-2">
-      <%= f.collection_select(:suplier_id, @supliers, :id, :name, include_blank: true) %>
-    </div>
-    <%=f.error_span(:suplier_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :customer_name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-2">
-      <%= f.collection_select(:customer_id, @customers, :id, :name, include_blank: true) %>
-    </div>
-    <%=f.error_span(:customer_id) %>
-  </div>
+  </div>  
 
   <table>
     <tr align="left">
       <td width="100">&nbsp;</td>
       <td>
-        <%=  image_submit_tag('confirm.png') %>
+        <%=  image_submit_tag('confirm2.png', :border => 0, :alt => '', :title => t("helpers.links.save", :default => 'Save'), :width => 40, :height => 40) %>
       </td>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>
-        <%= link_to image_tag('cancel.png', :border => 0, :alt => '', :title => 'Cancelar', :width => 40, :height => 40),
+        <%= link_to image_tag('cancel.png', :border => 0, :alt => '', :title => t("helpers.links.cancel", :default => 'Cancel'), :width => 40, :height => 40),
                     sales_path
         %>
       </td>

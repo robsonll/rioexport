@@ -10,8 +10,8 @@
   <dd><%= @sale.suplier_contract %></dd>
   <dt><strong><%= model_class.human_attribute_name(:customer_contract) %>:</strong></dt>
   <dd><%= @sale.customer_contract %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:shipping_company) %>:</strong></dt>
-  <dd><%= @sale.shipping_company %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:shipping_co_id) %>:</strong></dt>
+  <dd><%= @sale.shipping_co_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:bags_qty) %>:</strong></dt>
   <dd><%= @sale.bags_qty %></dd>
   <dt><strong><%= model_class.human_attribute_name(:shipping_date) %>:</strong></dt>
@@ -20,8 +20,8 @@
   <dd><%= @sale.price %></dd>
   <dt><strong><%= model_class.human_attribute_name(:product_type) %>:</strong></dt>
   <dd><%= @sale.product_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:comission_value) %>:</strong></dt>
-  <dd><%= @sale.comission_value %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:customer_commission) %>:</strong></dt>
+  <dd><%= @sale.customer_commission %></dd>
   <dt><strong><%= model_class.human_attribute_name(:suplier_name) %>:</strong></dt>
   <dd><%= @sale.suplier.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:customer_name) %>:</strong></dt>
@@ -36,7 +36,7 @@
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               sale_path(@sale),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) },
               :class => 'btn btn-danger' %>
 -->
 
@@ -44,22 +44,22 @@
     <tr align="left">
       <td width="100">&nbsp;</td>
       <td>
-        <%= link_to image_tag('back.png', :border => 0, :alt => '', :title => 'Voltar', :width => 40, :height => 40),
+        <%= link_to image_tag('back.png', :border => 0, :alt => '', :title => t("helpers.links.back", :default => 'Back'), :width => 40, :height => 40),
                     sales_path
         %>
       </td>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>
-          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => 'Alterar Venda', :width => 40, :height => 40),
+          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => t("views.sale.edit", :default => 'Edit Sale'), :width => 40, :height => 40),
                       edit_sale_path(@sale)
           %>
       </td>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>
-          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => 'Apagar Venda', :width => 40, :height => 40),
+          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => t("views.sale.destroy", :default => 'Delete Sale'), :width => 40, :height => 40),
                       sale_path(@sale),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza ?')) }
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) }
           %>
       </td>
     </tr>

@@ -11,7 +11,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:customer_name) %></th>
       <th><%= model_class.human_attribute_name(:suplier_name) %></th>
-      <th><%= model_class.human_attribute_name(:shipping_company) %></th>
+      <th><%= model_class.human_attribute_name(:shipping_co_id) %></th>
       <th><%= model_class.human_attribute_name(:shipping_date) %></th>
       <th><%= model_class.human_attribute_name(:product_type) %></th>
       <th colspan="3"><div align="center"><%=t '.actions', :default => t("helpers.actions") %></div></th>
@@ -23,7 +23,7 @@
         <td><%= link_to sale.id, sale_path(sale) %></td>
         <td><%= sale.customer.name %></td>
         <td><%= sale.suplier.name %></td>
-        <td><%= sale.shipping_company %></td>
+        <td><%= sale.shipping_co_id %></td>
         <td><%= sale.shipping_date %></td>
         <td><%= sale.product_type %></td>
         <td>
@@ -40,19 +40,19 @@
                       method: :post,
                       :class => 'btn btn-primary' %>
           -->
-          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => 'Alterar Venda', :width => 20, :height => 20),
+          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => t("views.sale.edit", :default => 'Edit Sale'), :width => 20, :height => 20),
                       edit_sale_path(sale)
           %>
         </td>
         <td>
-          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => 'Apagar Venda', :width => 20, :height => 20),
+          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => t("views.sale.destroy", :default => 'Delete Sale'), :width => 20, :height => 20),
                       sale_path(sale),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) }
           %>
         </td>
         <td>
-          <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => 'Imprimir Venda', :width => 20, :height => 20),
+          <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => t("views.sale.report", :default => 'Sale Report'), :width => 20, :height => 20),
                       sale_report_path(sale),
                       method: :post
           %>
@@ -70,13 +70,13 @@
 <table>
   <tr align="left">
     <td>
-        <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => 'Nova Venda', :width => 40, :height => 40),
+        <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => t("views.sale.new", :default => 'New Sale'), :width => 40, :height => 40),
                     new_sale_path
         %>
     </td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td>
-        <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => 'Todas as Vendas', :width => 40, :height => 40),
+        <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => t("views.sale.allReport", :default => 'Sales Report'), :width => 40, :height => 40),
                               allSales_report_path,
                               method: :post
         %>

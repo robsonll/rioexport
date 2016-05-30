@@ -34,6 +34,8 @@ Documentation and Support
 
 Issues
 -------------
+- relatorios
+- 
 
 Credits
 -------

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525031055) do
+ActiveRecord::Schema.define(version: 20160528012023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,25 +27,52 @@ ActiveRecord::Schema.define(version: 20160525031055) do
     t.string   "complete_name"
   end
 
+  create_table "fixations", force: :cascade do |t|
+    t.string   "fixed_lot"
+    t.string   "average_price"
+    t.string   "defferential"
+    t.string   "final_price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "sale_id"
+  end
+
+  add_index "fixations", ["sale_id"], name: "index_fixations_on_sale_id", using: :btree
+
   create_table "sales", force: :cascade do |t|
     t.string   "rioexport_contract"
     t.string   "suplier_contract"
     t.string   "customer_contract"
-    t.string   "shipping_company"
     t.integer  "bags_qty"
-    t.date     "shipping_date"
-    t.decimal  "price"
     t.string   "product_type"
-    t.string   "comission_value"
-    t.string   "decimal"
     t.integer  "suplier_id"
     t.integer  "customer_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "shipping_co_id"
+    t.string   "shipping_date"
+    t.string   "price"
+    t.string   "payment_type"
+    t.string   "customer_commission"
+    t.string   "suplier_commission"
   end
 
   add_index "sales", ["customer_id"], name: "index_sales_on_customer_id", using: :btree
   add_index "sales", ["suplier_id"], name: "index_sales_on_suplier_id", using: :btree
+
+  create_table "shippings", force: :cascade do |t|
+    t.string   "destination"
+    t.string   "shipping_line"
+    t.string   "daparture_terminal"
+    t.string   "arriving_terminal"
+    t.string   "special_conditions"
+    t.string   "documents"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "sale_id"
+  end
+
+  add_index "shippings", ["sale_id"], name: "index_shippings_on_sale_id", using: :btree
 
   create_table "supliers", force: :cascade do |t|
     t.string   "name"
@@ -80,6 +107,8 @@ ActiveRecord::Schema.define(version: 20160525031055) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "fixations", "sales"
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "supliers"
+  add_foreign_key "shippings", "sales"
 end

@@ -28,19 +28,19 @@
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       customer_path(customer),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) },
                       :class => 'btn btn-xs btn-danger' %>
         -->
         
-          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => 'Alterar Cliente', :width => 20, :height => 20),
+          <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => t("views.customer.edit", :default => 'Edit Client'), :width => 20, :height => 20),
                       edit_customer_path(customer)
           %>
         </td>
         <td>
-          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => 'Apagar Cliente', :width => 20, :height => 20),
+          <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => t("views.customer.destroy", :default => 'Delete Client'), :width => 20, :height => 20),
                       customer_path(customer),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) }
           %>
         
         </td>
@@ -62,13 +62,13 @@
 <table>
   <tr align="left">
     <td>
-        <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => 'Novo Cliente', :width => 40, :height => 40),
+        <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => t("views.customer.new", :default => 'New Client'), :width => 40, :height => 40),
                     new_customer_path
         %>
     </td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td>
-        <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => 'Todos os Clientes', :width => 40, :height => 40),
+        <%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => t("views.customer.allReport", :default => 'Clients Report'), :width => 40, :height => 40),
                               allCustomers_report_path,
                               method: :post
         %>

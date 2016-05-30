@@ -26,18 +26,25 @@ class SalesController < ApplicationController
   # GET /sales/new
   def new
     @sale = Sale.new
+    @sale.build_shipping
+    @sale.build_fixation
     @supliers = Suplier.all
     @customers = Customer.all
   end
 
   # GET /sales/1/edit
   def edit
+    #@sale = Sale.find(params[:id]) 
+    @sale.build_shipping if @sale.shipping.nil?
+    @sale.build_fixation if @sale.fixation.nil?
   end
 
   # POST /sales
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
+    @supliers = Suplier.all
+    @customers = Customer.all
 
     respond_to do |format|
       if @sale.save
@@ -176,7 +183,6 @@ class SalesController < ApplicationController
 
 # *********************************************************************************************
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sale
@@ -187,7 +193,33 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:rioexport_contract, :suplier_contract, :customer_contract, :shipping_company, :bags_qty, :shipping_date, :price, :product_type, :comission_value, :decimal, :suplier_id, :customer_id)
+      params.require(:sale).permit( :rioexport_contract, 
+                                    :suplier_contract, 
+                                    :customer_contract, 
+                                    :shipping_company, 
+                                    :bags_qty, 
+                                    :shipping_date, 
+                                    :shipping_co_id,
+                                    :price, 
+                                    :payment_type,
+                                    :product_type, 
+                                    :customer_commission,
+                                    :suplier_commission,
+                                    :suplier_id, 
+                                    :customer_id,
+                                    shipping_attributes: [:id, 
+                                                          :destination,
+                                                          :shipping_line,
+                                                          :daparture_terminal,
+                                                          :arriving_terminal,
+                                                          :special_conditions,
+                                                          :documents],
+                                    fixation_attributes: [:id, 
+                                                          :fixed_lot,
+                                                          :average_price,
+                                                          :defferential,
+                                                          :final_price]
+                                  )
     end
 
 end

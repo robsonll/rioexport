@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Ascii85 (1.0.2)
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
       actionview (= 4.2.6)
@@ -37,6 +38,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    afm (0.2.2)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
@@ -94,6 +96,7 @@ GEM
     ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hashery (2.1.2)
     high_voltage (3.0.0)
     i18n (0.7.0)
     jbuilder (2.4.1)
@@ -128,11 +131,22 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     pdf-core (0.6.1)
+    pdf-inspector (1.2.1)
+      pdf-reader (~> 1.0)
+    pdf-reader (1.4.0)
+      Ascii85 (~> 1.0.0)
+      afm (~> 0.2.1)
+      hashery (~> 2.0)
+      ruby-rc4
+      ttfunk
     pg (0.18.4)
     prawn (2.1.0)
       pdf-core (~> 0.6.1)
       ttfunk (~> 1.4.0)
     prawn-table (0.1.2)
+    prawnto_2 (0.2.6)
+      prawn (>= 0.6.0)
+      rails (>= 3.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -184,6 +198,7 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    ruby-rc4 (0.1.5)
     rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.4)
@@ -256,9 +271,11 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
+  pdf-inspector
   pg
   prawn
   prawn-table (~> 0.1.0)
+  prawnto_2
   quiet_assets
   rails (= 4.2.6)
   rails_layout

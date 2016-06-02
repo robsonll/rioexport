@@ -10,10 +10,10 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'prawn'
 gem 'prawn-table', '~> 0.1.0'
-#gem 'prawnto_2', :require => 'prawnto'
+gem 'prawnto_2', :require => 'prawnto'
 gem 'rspec-rails', '3.4.2'
 gem 'capybara'
-#gem 'pdf-inspector'
+gem 'pdf-inspector'
 
 gem 'pg'
 #gem 'mysql2', '~> 0.3.18'

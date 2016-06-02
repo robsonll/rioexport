@@ -1,69 +1,131 @@
-<!-- Page Content -->
-<div class="container">
+<style>
+#fundo_pretox {
+    background-color:black;
+    color:white;
+    padding:15px;
+    width:90%;
+}
+</style>
 
-    <!-- Heading Row -->
-    <div class="row">
-        <div class="col-md-8">
-            <!--<img class="img-responsive img-rounded" src="cafe_brasil.jpg" alt="">-->
-            <%= image_tag("cafe_brasil.jpg", :alt => "RioExport") %>
+<!-- Header Carousel -->
+<header id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" style="background-image:url('assets/carossel2b.jpg');"></div>
+            <div class="carousel-caption">
+                <!--<h2>Caption 1</h2>-->
+            </div>
         </div>
-        <!-- /.col-md-8 -->
-        <div class="col-md-4">
-            <h1 class=".texto-basico">RioExport</h1>
-            <p>Rioexport Internacional Representação e Corretagem LTDA</p>
-            <!--<a class="btn btn-primary btn-lg" href="#">Call to Action!</a>-->
+        <div class="item">
+            <div class="fill" style="background-image:url('assets/carrossel12.jpg');"></div>
+            <div class="carousel-caption">
+                <!--<h2>Caption 2</h2>-->
+            </div>
         </div>
-        <!-- /.col-md-4 -->
+        <div class="item">
+            <div class="fill" style="background-image:url('assets/carrossel13.jpg');"></div>
+            <div class="carousel-caption">
+                <!--<h2>Caption 3</h2>-->
+            </div>
+        </div>
     </div>
-    <!-- /.row -->
 
-    <hr>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+</header>
 
-    <!-- Call to Action Well -->
+<!-- Page Content -->
+<div class="container" id="fundo_preto">
+
+    <!-- Marketing Icons Section -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="well text-center">
-                Telefone de contato -- 55 21 34866413
+            <h1 class="page-header">
+                RioExport
+                <p>Rioexport Internacional Representação e Corretagem LTDA</p>
+            </h1>
+            
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-check"></i> Quem somos </h4>
+                </div>
+                <div class="panel-body">
+                    <p>Fundada em 1971, a RioExport comercializa os melhores grãos, ligando compradores em todas as partes do mundo aos melhores forneceores do café brasileiro.</p>
+                    <a href="#" class="btn btn-default">Saiba Mais</a>
+                </div>
             </div>
         </div>
-        <!-- /.col-lg-12 -->
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-gift"></i> Contatos </h4>
+                </div>
+                <div class="panel-body">
+                    <p>Entre em contato para saber quais são os passos necessários para se tornar um cliente</p>
+                    <a href="#" class="btn btn-default">Saiba Como</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-compass"></i> Café </h4>
+                </div>
+                <div class="panel-body">
+                    <p>Saiba um pouco mais sobre a bebida que faz parte do dia a dia de milhões de pessoas em todas as partes do mundo</p>
+                    <a href="#" class="btn btn-default">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.row -->
 
-    <% if user_signed_in? %>
-
-        <!-- Content Row -->
-        <div class="row">
-            <div class="col-md-4">
-                <%=link_to image_tag('user_group.png', :border => 0, :alt => '', :title => 'Clientes', :width => 60, :height => 60), customers_path%>
-                <p align="center">Cadastro de Clientes</p>
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <%=link_to image_tag('user_clients_01.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), supliers_path%>
-                <p align="center">Fornecedores</p>
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <%=link_to image_tag('dollar_sign.png', :border => 0, :alt => '', :title => 'Fornecedores', :width => 60, :height => 60), sales_path%>
-                <p align="center">Vendas</p>
-            </div>
-            <!-- /.col-md-4 -->
+    <!-- Features Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Como podemos auxiliar seu negócio ?</h2>
         </div>
-
-    <% end %>
-    
+        <div class="col-md-6">
+            <p>O que a RioExport pode oferecer na parceria:</p>
+            <ul>
+                <li><strong>Contato com os melhores produtores</strong>
+                </li>
+                <li>Consultoria aduaneira</li>
+                <li>Acompanhamento dos pedidos</li>
+                <li>Total transparência em todas as etapas do processo</li>
+                <li>Capacidade de adaptação para melhor atender aos clientes</li>
+            </ul>
+            <p>Entre em contato para saber mais</p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive" src="assets/cafe_brasil.jpg" alt="">
+        </div>
+    </div>
     <!-- /.row -->
-<br><br><br><br>
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; RioExport 2016</p>
-            </div>
-        </div>
-    </footer>
 
 </div>
 <!-- /.container -->
 
+<!-- Script to Activate the Carousel -->
+<script>
+$(document).on('ready', function () {
+  $('.carousel').carousel({
+      interval: 5000 //changes the speed
+  })
+});
+</script>

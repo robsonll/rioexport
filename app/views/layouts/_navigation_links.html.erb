@@ -2,6 +2,7 @@
   <li><%= link_to t('layout.customers'), customers_path %></li>
   <li><%= link_to t('layout.supliers'), supliers_path %></li>
   <li><%= link_to t('layout.sales'), sales_path %></li>
+  <li><%= link_to t('layout.debit_notes'), debit_notes_path %></li>
   <li><%= link_to t('layout.edit_account'), edit_user_registration_path %></li>
   <li><%= link_to t('layout.sign_out'), destroy_user_session_path, :method=>'delete' %></li>
   <% if current_user.admin? %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531204155) do
+ActiveRecord::Schema.define(version: 20160602105219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,16 +27,28 @@ ActiveRecord::Schema.define(version: 20160531204155) do
     t.string   "complete_name"
   end
 
+  create_table "debit_notes", force: :cascade do |t|
+    t.string   "bank_info"
+    t.float    "total_ammount"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "fixations", force: :cascade do |t|
     t.string   "fixed_lot"
     t.string   "average_price"
     t.string   "diferential"
     t.string   "final_price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "sale_id"
+    t.float    "customer_commission"
+    t.float    "suplier_commission"
+    t.float    "ptax"
+    t.integer  "debit_note_id"
   end
 
+  add_index "fixations", ["debit_note_id"], name: "index_fixations_on_debit_note_id", using: :btree
   add_index "fixations", ["sale_id"], name: "index_fixations_on_sale_id", using: :btree
 
   create_table "sales", force: :cascade do |t|
@@ -47,14 +59,14 @@ ActiveRecord::Schema.define(version: 20160531204155) do
     t.string   "product_type"
     t.integer  "suplier_id"
     t.integer  "customer_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "shipping_co_id"
     t.string   "shipping_date"
     t.string   "price"
     t.string   "payment_type"
-    t.string   "customer_commission"
-    t.string   "suplier_commission"
+    t.string   "customer_com_desc"
+    t.string   "suplier_com_desc"
   end
 
   add_index "sales", ["customer_id"], name: "index_sales_on_customer_id", using: :btree
@@ -107,6 +119,7 @@ ActiveRecord::Schema.define(version: 20160531204155) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "fixations", "debit_notes"
   add_foreign_key "fixations", "sales"
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "supliers"

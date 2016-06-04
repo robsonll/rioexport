@@ -23,8 +23,15 @@
       <li><a href="#tab3" data-toggle="tab"><%= t("views.sale.fixation_info", :default => 'Price Fixation') %></a></li>
     </ul>
     <div class="tab-content">
+      
+    <!-- ************************************ INICIO TABS ****************************************-->      
 
-    <!-- ************************************ TAB 1 ****************************************-->      
+    <!-- ************************************ TAB 1 ****************************************-->    
+    <!-- *                                                                                 *-->    
+    <!-- *                                  SALE DATA                                      *-->    
+    <!-- *                                                                                 *-->    
+    <!-- ************************************ TAB 1 ****************************************-->    
+
       <div class="tab-pane active" id="tab1">
         <br>
         <div class="form-group">
@@ -92,11 +99,11 @@
         </div>
         
         <div class="form-group">
-          <%= f.label :suplier_commission, :class => 'control-label col-lg-2' %>
+          <%= f.label :suplier_com_desc, :class => 'control-label col-lg-2' %>
           <div class="col-lg-1">
-            <%= f.text_field :suplier_commission, :class => 'form-control' %>
+            <%= f.text_field :suplier_com_desc, :class => 'form-control' %>
           </div>
-          <%=f.error_span(:suplier_commission) %>
+          <%=f.error_span(:suplier_com_desc) %>
         </div>
         
         <div class="form-group">
@@ -108,11 +115,11 @@
         </div>
         
         <div class="form-group">
-          <%= f.label :customer_comission, :class => 'control-label col-lg-2' %>
+          <%= f.label :customer_com_desc, :class => 'control-label col-lg-2' %>
           <div class="col-lg-1">
-            <%= f.text_field :customer_commission, :class => 'form-control' %>
+            <%= f.text_field :customer_com_desc, :class => 'form-control' %>
           </div>
-          <%=f.error_span(:customer_commission) %>
+          <%=f.error_span(:customer_com_desc) %>
         </div>
         
         <div class="form-group">
@@ -125,7 +132,11 @@
 
       </div>
       
-    <!-- ************************************ TAB 2 ****************************************-->
+    <!-- ************************************ TAB 2 ****************************************-->    
+    <!-- *                                                                                 *-->    
+    <!-- *                                SHIPPING INFO                                    *-->    
+    <!-- *                                                                                 *-->    
+    <!-- ************************************ TAB 2 ****************************************-->    
       
       <div class="tab-pane" id="tab2">
         <br>
@@ -184,7 +195,10 @@
       </div>
 
     <!-- ************************************ TAB 3 ****************************************-->    
-      
+    <!-- *                                                                                 *-->    
+    <!-- *                                PRICE FIXATION                                   *-->    
+    <!-- *                                                                                 *-->    
+    <!-- ************************************ TAB 3 ****************************************-->    
       <div class="tab-pane" id="tab3">
         <br>
 
@@ -220,7 +234,39 @@
             </div>
             <%=fx.error_span(:final_price) %>
           </div>
+
+          <div class="form-group">
+            <%= fx.label :suplier_commission, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :suplier_commission, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:suplier_commission) %>
+          </div>
+
+          <div class="form-group">
+            <%= fx.label :ptax, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :ptax, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:ptax) %>
+          </div>
+
+          <div class="form-group">
+            <%= fx.label :customer_commission, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :customer_commission, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:customer_commission) %>
+          </div>
           
+          <div class="form-group">
+            <%= fx.label :debit_note_id, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-2">
+              <%= fx.text_field :debit_note_id, :class => 'form-control' %>
+            </div>
+            <%=fx.error_span(:debit_note_id) %>
+          </div>
+
         <% end %>
 
       </div>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :supliers
   resources :users
+  resources :debit_notes
 
   post '/customer/report' => 'customers#customerReport', :as => :customer_report
   post '/allCustomers/report' => 'customers#allCustomersReport'

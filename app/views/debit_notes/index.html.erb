@@ -1,0 +1,65 @@
+<%- model_class = DebitNote -%>
+
+<style>
+#corpo {
+    background-color:white;
+    color:black;
+}
+</style>
+
+<div id="corpo">
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:id) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+        <th><%= model_class.human_attribute_name(:total_ammount) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @debit_notes.each do |dn| %>
+        <tr>
+          <td><%= link_to dn.id, debit_note_path(dn) %></td>
+          <td><%= dn.created_at %></td>
+          <td><%= dn.total_ammount %></td>
+          <td>
+            <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => t("views.debit_note.edit", :default => 'Edit Debit Note'), :width => 20, :height => 20),
+                        edit_debit_note_path(dn)
+            %>
+          </td>
+          <td>
+            <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => t("views.debit_note.destroy", :default => 'Delete Debit Note'), :width => 20, :height => 20),
+                        debit_note_path(dn),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) }
+            %>
+          
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table>
+    <tr align="left">
+      <td>
+          <%= link_to image_tag('new.png', :border => 0, :alt => '', :title => t("views.debit_note.new", :default => 'New Debit Note'), :width => 40, :height => 40),
+                      new_debit_note_path
+          %>
+      </td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <!--
+      <td>
+          <'%= link_to image_tag('printer.png', :border => 0, :alt => '', :title => t("views.customer.allReport", :default => 'Clients Report'), :width => 40, :height => 40),
+                                allCustomers_report_path,
+                                method: :post
+          %>
+      </td>
+      -->
+    </tr>
+  </table>
+</div>

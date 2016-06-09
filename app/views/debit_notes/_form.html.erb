@@ -1,4 +1,4 @@
-<%= form_for @debit_note, :html => { :class => "form-horizontal debit_note" } do |f| %>
+<%= form_for @debit_note, :html => { :class => "form-horizontal debit_note" }, html: {method: "get"} do |f| %>
 
   <% if @debit_note.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -14,6 +14,14 @@
       </div>
     </div>
   <% end %>
+  
+  <div class="form-group">
+    <%= f.label :customer_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.select :id, options_for_select(@customers.collect { |customer| [customer.name.titleize, customer.id] }, 1), {}, { id: 'customers_select' } %>
+    </div>
+    <%=f.error_span(:customer_id) %>
+  </div>
 
   <div class="form-group">
     <%= f.label :bank_info, :class => 'control-label col-lg-2' %>
@@ -30,8 +38,15 @@
     <%=f.error_span(:total_ammount) %>
   </div>
 
-  <br><br>
-  
+  <br>
+
+    <div class="container" id="sales-form">
+      <h1 style="margin:150px auto 30px auto">Selecione as vendas a compor o Debit Note</h1>
+        <div id="dual-list-box" class="form-group row">
+          <select multiple="multiple" data-title="sales" data-source="../sales.json" data-value="id" data-text="rioexport_contract" id="sales_notselected"></select>
+        </div>
+    </div>
+
   <table>
     <tr align="left">
       <td width="100">&nbsp;</td>
@@ -47,3 +62,23 @@
     </tr>
   </table>
 <% end %>
+
+<script src="../assets/dual-list-box.js"></script>
+<script type="text/javascript">
+        $('select').DualListBox();
+    </script>
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>

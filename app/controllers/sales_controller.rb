@@ -73,7 +73,6 @@ class SalesController < ApplicationController
       params.require(:sale).permit( :rioexport_contract, 
                                     :suplier_contract, 
                                     :customer_contract, 
-                                    :shipping_company, 
                                     :bags_qty, 
                                     :shipping_date, 
                                     :shipping_co_id,

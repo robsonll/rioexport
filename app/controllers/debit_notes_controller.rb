@@ -15,6 +15,14 @@ class DebitNotesController < ApplicationController
   # GET /debit_notes/new
   def new
     @debit_note = DebitNote.new
+    @sales = Sale.all
+    @customers = Customer.all
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :new, status: :created, location: @sales }
+    end
+    
   end
 
   # GET /debit_notes/1/edit
@@ -58,6 +66,16 @@ class DebitNotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to debit_notes_url, notice: 'Debit note was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def update_sales
+
+    @sales = Sale.where(:customer_id => params[:customer_id]).first
+
+    respond_to do |format|
+      format.js
+      format.json { render json: @sales }
     end
   end
 

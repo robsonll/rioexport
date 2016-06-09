@@ -21,7 +21,7 @@
   <dt><strong><%= model_class.human_attribute_name(:product_type) %>:</strong></dt>
   <dd><%= @sale.product_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:customer_commission) %>:</strong></dt>
-  <dd><%= @sale.customer_commission %></dd>
+  <dd><%= @sale.fixation.customer_commission %></dd>
   <dt><strong><%= model_class.human_attribute_name(:suplier_name) %>:</strong></dt>
   <dd><%= @sale.suplier.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:customer_name) %>:</strong></dt>

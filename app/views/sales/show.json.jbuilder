@@ -1,1 +1,1 @@
-json.extract! @sale, :id, :rioexport_contract, :suplier_contract, :customer_contract, :shipping_company, :bags_qty, :shipping_date, :price, :product_type, :comission_value, :suplier_id, :customer_id, :created_at, :updated_at
+json.extract! @sale, :id, :rioexport_contract, :suplier_contract, :customer_contract, :bags_qty, :shipping_date, :price, :product_type, :customer_com_desc, :suplier_com_desc, :suplier_id, :customer_id, :created_at, :updated_at

@@ -207,5 +207,16 @@ Problemas conhecidos
 - erro instalação gem do pg --> fatal error: libpq-fe.h: No such file or directory
     sudo apt-get install libpq-dev
 
+
+BD
+-----------------------------------------
+- Postgres
+    - \list or \l         (list all databases)                               (SELECT datname FROM pg_database WHERE datistemplate = false;)
+    - \dt                 (list all tables in the current database)          (SELECT table_schema,table_name FROM information_schema.tables ORDER BY table_schema,table_name;)
+    - \c db_name          (to connect to a certain database)
+    - psql -U pgadmin -l  (list databases etc)
+    - \du                 (list users)
+
+
 rails s -b $IP -p $PORT
 sudo service postgresql start           (start no posgresql)

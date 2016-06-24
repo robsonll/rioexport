@@ -220,3 +220,4 @@ BD
 
 rails s -b $IP -p $PORT
 sudo service postgresql start           (start no posgresql)
+

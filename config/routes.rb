@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :supliers
   resources :users
   resources :debit_notes
+  
 
   post '/customer/report' => 'customers#customerReport', :as => :customer_report
   post '/allCustomers/report' => 'customers#allCustomersReport'
@@ -20,5 +21,7 @@ Rails.application.routes.draw do
   post '/allSupliers/report' => 'supliers#allSupliersReport'
 
   post '/user/create' => 'users#create', :as => :user_create
-  
+
+  get 'debit_note/update_sales' => 'debit_notes#update_sales', :as => :update_sales
+
 end

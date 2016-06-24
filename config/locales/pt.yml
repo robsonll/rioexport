@@ -50,6 +50,7 @@ pt-BR:
       customer: 'Cliente'
       suplier: 'Fornecedor'
       sale: 'Venda'
+      debit_note: 'Debit Note'
     attributes:
       customer:
         name: 'Nome'
@@ -83,7 +84,6 @@ pt-BR:
         price: 'Preço'
         product_type: 'Tipo'
         comission_value: 'Valor Comissão'
-        decimal: 'xxx'
         suplier_id: 'id Fornecedor'
         suplier_name: 'Fornecedor'
         customer_id: 'id Cliente'
@@ -99,6 +99,8 @@ pt-BR:
         arriving_terminal: 'Terminal de destino'
         special_conditions: 'Condições'
         documents: 'Documentos requeridos'
+        created_at: 'Criado em'
+        updated_at: 'Alterado em'
       fixation:
         fixed_lot: 'Lotes a serem fixados'
         average_price: 'Preço médio'
@@ -108,6 +110,13 @@ pt-BR:
         suplier_commission: 'Valor da comissão do fornecedor'
         ptax: 'Taxa de câmbio'
         debit_note_id: 'Debit Note associado'
+        created_at: 'Criado em'
+        updated_at: 'Alterado em'
+      debit_note:
+        bank_info: 'Informações Bancárias'
+        total_ammount: 'Valor Total'
+        created_at: 'Criado em'
+        updated_at: 'Alterado em'
     controller_msg:
       customer:
         created: 'Cliente criado com sucesso'
@@ -121,6 +130,11 @@ pt-BR:
         created: 'Venda cadastrada com sucesso'
         updated: 'Venda atualizada com sucesso'
         destroyed: 'Venda excluída com sucesso'
+      debit_note:
+        created: 'Debit Note cadastrado com sucesso'
+        updated: 'Debit Note atualizado com sucesso'
+        destroyed: 'Debit Note excluído com sucesso'
+        
   
   views:
     suplier:
@@ -141,6 +155,10 @@ pt-BR:
       report: 'Relatório Individual de Venda'
       sale_contract: 'Contrato de Venda'
       ship_info: 'Dados de Embarque'
+    debit_note:
+      new: 'Cadastrar Novo Debit Note'
+      edit: 'Editar Debit Note'
+      destroy: 'Excluir Debit Note'
     
 
   activemodel:

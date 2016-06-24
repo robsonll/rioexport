@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = DebitNote -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<%= link_to 'Edit', edit_debit_note_path(@debit_note) %> |
-<%= link_to 'Back', debit_notes_path %>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:bank_info) %>:</strong></dt>
+  <dd><%= @debit_note.bank_info %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:total_ammount) %>:</strong></dt>
+  <dd><%= @debit_note.total_ammount %></dd>
+  <dt><strong>Nome de Cliente:</strong></dt>
+  <dd><%= @debit_note.customer.name %></dd>
+</dl>
+
+<table>
+<tr align="left">
+  <td width="100">&nbsp;</td>
+  <td>
+    <%= link_to image_tag('back.png', :border => 0, :alt => '', :title => t("helpers.links.back", :default => 'Back'), :width => 40, :height => 40),
+                debit_notes_path
+    %>
+  </td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>
+      <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => t("views.sale.edit", :default => 'Edit Sale'), :width => 40, :height => 40),
+                  edit_debit_note_path(@debit_note)
+      %>
+  </td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>
+      <%= link_to image_tag('delete.png', :border => 0, :alt => '', :title => t("views.sale.destroy", :default => 'Delete Sale'), :width => 40, :height => 40),
+                  debit_notes_path(@debit_note),
+                  :method => :delete,
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure ?')) }
+      %>
+  </td>
+</tr>
+</table>

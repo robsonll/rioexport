@@ -17,6 +17,7 @@
         <th><%= model_class.human_attribute_name(:id) %></th>
         <th><%= model_class.human_attribute_name(:created_at) %></th>
         <th><%= model_class.human_attribute_name(:total_ammount) %></th>
+        <th>Cliente</th>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
     </thead>
@@ -26,6 +27,7 @@
           <td><%= link_to dn.id, debit_note_path(dn) %></td>
           <td><%= dn.created_at %></td>
           <td><%= dn.total_ammount %></td>
+          <td><%= dn.customer.name %></td>
           <td>
             <%= link_to image_tag('edit.png', :border => 0, :alt => '', :title => t("views.debit_note.edit", :default => 'Edit Debit Note'), :width => 20, :height => 20),
                         edit_debit_note_path(dn)

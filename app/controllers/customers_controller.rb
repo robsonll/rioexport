@@ -137,7 +137,7 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :email, :address, :state, :country)
+      params.require(:customer).permit(:name, :complete_name, :email, :address, :state, :country)
     end
 
     # Metodos para utilização do Prawn

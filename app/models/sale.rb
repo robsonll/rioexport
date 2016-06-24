@@ -5,5 +5,5 @@ class Sale < ActiveRecord::Base
   has_one :fixation, autosave:true
   
   accepts_nested_attributes_for :shipping, :fixation
-  
+  validates :rioexport_contract, :customer_id, :suplier_id, presence: true
 end

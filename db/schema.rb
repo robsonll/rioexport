@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602105219) do
+ActiveRecord::Schema.define(version: 20160619180846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 20160602105219) do
     t.float    "total_ammount"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "customer_id"
   end
+
+  add_index "debit_notes", ["customer_id"], name: "index_debit_notes_on_customer_id", using: :btree
 
   create_table "fixations", force: :cascade do |t|
     t.string   "fixed_lot"
@@ -119,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160602105219) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "debit_notes", "customers"
   add_foreign_key "fixations", "debit_notes"
   add_foreign_key "fixations", "sales"
   add_foreign_key "sales", "customers"

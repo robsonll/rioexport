@@ -58,6 +58,7 @@ class SalesController < ApplicationController
     end
   end
 
+  
 # *********************************************************************************************
 
   private
